@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @Repository
 public interface ListingRepository extends MongoRepository<ListingData, String>, PagingAndSortingRepository<ListingData,String> {
 
-    @Query(value="{}", fields="{listingDetails: 0}")
-    Page<ListingData> findAll(Pageable pageable);
+    @Query(value="{ 'listingMetricDetails.status' : ?0 }", fields="{listingDetails: 0}")
+    Page<ListingData> findAllByStatus(String status ,  Pageable pageable);
 
     default Page<ListingData>getPaginatedResults(String whereClause, int offset, int limit){
         Criteria criteria = getQueryFromWhereClause(whereClause);

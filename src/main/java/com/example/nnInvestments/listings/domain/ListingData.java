@@ -43,9 +43,10 @@ public class ListingData {
 
     private static ListingMetricDetails createListingMetricData(ListingMetricDetails listingMetricDetailsReq) {
         ListingMetricDetails listingMetricDetails = new ListingMetricDetails();
-        listingMetricDetails.setEndDate(listingMetricDetails.getEndDate());
-        listingMetricDetails.setStartDate(listingMetricDetails.getStartDate());
-        listingMetricDetails.setTotalCredit(listingMetricDetails.getTotalCredit());
+        listingMetricDetails.setEndDate(listingMetricDetailsReq.getEndDate());
+        listingMetricDetails.setStartDate(listingMetricDetailsReq.getStartDate());
+        listingMetricDetails.setTotalCredit(listingMetricDetailsReq.getTotalCredit());
+        listingMetricDetails.setResponseCount(1);
         listingMetricDetails.setStatus("ACTIVE");
         return listingMetricDetails;
     }

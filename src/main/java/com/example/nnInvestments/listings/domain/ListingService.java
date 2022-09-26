@@ -54,7 +54,7 @@ public class ListingService {
 
 
         //Page<ListingData> listingDataPage = listingRepository.getPaginatedResults(whereClause, offset, limit);
-        Page<ListingData> listingDataPage = listingRepository.findAll(PageRequest.of(offset, limit));
+        Page<ListingData> listingDataPage = listingRepository.findAllByStatus("ACTIVE", PageRequest.of(offset, limit));
         List<ListingData> response = new ArrayList<>(listingDataPage.getContent());
         response.sort(Comparator.comparing(ListingData::getListingMetricDetails));
 
