@@ -29,7 +29,7 @@ public class ListingDetails {
 
     @Data
     private static class InvestmentDetails {
-        private Integer totalInvestment;
+        private String totalInvestment;
         private Map<String, BreakUp> investmentBreakup;
 
         @Data

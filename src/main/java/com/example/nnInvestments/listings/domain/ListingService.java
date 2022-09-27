@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ListingService {
@@ -28,6 +27,14 @@ public class ListingService {
         ListingData listingData = ListingData.createListingData(listingRequest);
         ListingData listingSavedData = listingRepository.save(listingData);
         LOGGER.info("Listing data saved with : " + listingSavedData);
+    }
+
+    public void createBulkListing(List<ListingRequest> listingRequests) {
+        if(CollectionUtils.isEmpty(listingRequests)){
+            return;
+        }
+        List<ListingData> listingData = listingRequests.stream().map(ListingData::createListingData).collect(Collectors.toList());
+        listingRepository.saveAll(listingData);
     }
 
     public void captureResponse(String listingId) {

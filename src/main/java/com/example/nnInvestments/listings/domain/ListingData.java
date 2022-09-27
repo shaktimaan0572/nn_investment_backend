@@ -22,6 +22,7 @@ public class ListingData {
     private String pricePerSqFt;
     private String yield;
     private String roi;
+    private String propStatus;
     private List<String> images;
     private ListingDetails listingDetails;
     private ListingMetricDetails listingMetricDetails;
@@ -35,6 +36,7 @@ public class ListingData {
                 .pricePerSqFt(listingRequest.getPricePerSqFt())
                 .yield(listingRequest.getYield())
                 .roi(listingRequest.getRoi())
+                .propStatus(listingRequest.getPropStatus())
                 .images(listingRequest.getImages())
                 .listingDetails(listingRequest.getListingDetails())
                 .listingMetricDetails(createListingMetricData(listingRequest.getListingMetricDetails()))

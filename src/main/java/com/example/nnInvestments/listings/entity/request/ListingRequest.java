@@ -14,6 +14,7 @@ public class ListingRequest {
     private String pricePerSqFt;
     private String yield;
     private String roi;
+    private String propStatus;
     private List<String> images;
     private ListingDetails listingDetails;
     private ListingMetricDetails listingMetricDetails;

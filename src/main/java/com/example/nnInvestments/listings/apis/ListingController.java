@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/nnInvestment")
 public class ListingController {
@@ -18,6 +20,12 @@ public class ListingController {
     @PostMapping("/listing")
     public ResponseEntity<?> createListing(@RequestBody ListingRequest listingRequest){
         listingService.createListing(listingRequest);
+        return ResponseEntity.ok().body(Boolean.TRUE);
+    }
+
+    @PostMapping("/listing/bulk")
+    public ResponseEntity<?> createBulkListing(@RequestBody List<ListingRequest> listingRequests){
+        listingService.createBulkListing(listingRequests);
         return ResponseEntity.ok().body(Boolean.TRUE);
     }
 
