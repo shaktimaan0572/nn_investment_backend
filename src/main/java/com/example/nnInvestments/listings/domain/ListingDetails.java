@@ -34,8 +34,8 @@ public class ListingDetails {
 
         @Data
         private static class BreakUp {
-            private Integer rentAmt;
-            private Integer propMgmtFee;
+            private String rentAmt;
+            private String propMgmtFee;
             private String tax;
         }
     }
