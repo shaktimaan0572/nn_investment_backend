@@ -18,10 +18,10 @@ public class ListingData {
     private String id;
     private String propertyName;
     private String address;
-    private double area;
-    private int pricePerSqFt;
-    private double yield;
-    private double roi;
+    private String area;
+    private String pricePerSqFt;
+    private String yield;
+    private String roi;
     private List<String> images;
     private ListingDetails listingDetails;
     private ListingMetricDetails listingMetricDetails;
