@@ -50,7 +50,7 @@ public class NnInvestmentsApplication {
 	FilterRegistrationBean<CustomFilter> filterConfig(){
 		FilterRegistrationBean<CustomFilter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
 		filterFilterRegistrationBean.setFilter(new CustomFilter());
-		filterFilterRegistrationBean.addUrlPatterns("/nnInvestment/listing","/nnInvestment/listings/**","/nnInvestment/listing/response/**");
+		filterFilterRegistrationBean.addUrlPatterns("/nnInvestment/listing","/nnInvestment/listings","/nnInvestment/listing/response/*");
 		return filterFilterRegistrationBean;
 	}
 
