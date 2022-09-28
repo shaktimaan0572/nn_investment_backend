@@ -18,7 +18,9 @@ public class NnInvestmentsApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("https://nn-investment-service.herokuapp.com/");
+				registry.addMapping("/**")
+						.allowedOrigins("https://nn-investment-service.herokuapp.com/")
+						.allowedMethods("GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD");
 			}
 		};
 	}
