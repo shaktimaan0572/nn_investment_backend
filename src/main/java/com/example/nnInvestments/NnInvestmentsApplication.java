@@ -1,7 +1,9 @@
 package com.example.nnInvestments;
 
+import com.example.nnInvestments.listings.infra.config.CustomFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -43,5 +45,13 @@ public class NnInvestmentsApplication {
 //		source.registerCorsConfiguration("/**", configuration);
 //		return source;
 //	}
+
+	@Bean
+	FilterRegistrationBean<CustomFilter> filterConfig(){
+		FilterRegistrationBean<CustomFilter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
+		filterFilterRegistrationBean.setFilter(new CustomFilter());
+		filterFilterRegistrationBean.addUrlPatterns("/nnInvestment/listing","/nnInvestment/listings/**","/nnInvestment/listing/response/**");
+		return filterFilterRegistrationBean;
+	}
 
 }

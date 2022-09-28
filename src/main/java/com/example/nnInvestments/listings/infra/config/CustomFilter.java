@@ -13,11 +13,11 @@ import java.io.IOException;
 public class CustomFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        filterChain.doFilter(request, response);
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "*");
         response.addHeader("Access-Control-Allow-Headers","*");
         response.addHeader("Access-Control-Max-Age","3600");
+        filterChain.doFilter(request, response);
 
     }
 }
